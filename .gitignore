@@ -1,0 +1,21 @@
+# .gitignore
+
+# Virtual Environment
+venv/
+*.venv
+
+# Python cache
+__pycache__/
+*.pyc
+
+
+# IDE/Editor specific
+.idea/
+.vscode/
+
+
+pai_code.egg-info
+
+z_project_list
+
+poetry.lock

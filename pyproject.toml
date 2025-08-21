@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "pycode"
+version = "0.1.0"
+description = "A lightweight and modular TUI IDE"
+authors = ["gtkrshnaaa <email@example.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+textual = "^5.3.0"
+prompt-toolkit = "^3.0.51"
+GitPython = "^3.1.45"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
