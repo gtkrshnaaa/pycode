@@ -1,0 +1,35 @@
+/* === ./pycode/app.css === */
+
+Screen {
+    layout: vertical;
+}
+
+#main-container {
+    layout: horizontal;
+    height: 1fr;
+}
+
+#sidebar {
+    width: 30;
+    min-width: 20;
+    dock: left;
+    border-right: heavy #44475a;
+}
+    
+#editor-container {
+    layout: vertical;
+    width: 1fr;
+}
+
+Editor {
+    height: 1fr;
+    border-bottom: heavy #44475a;
+    /* Make the editor background transparent to inherit container color */
+    background: transparent;
+}
+
+CommandPanel {
+    height: 1;
+}
+
+/* CommandPanel styling is now inside its own class */
