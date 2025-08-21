@@ -6,7 +6,7 @@ In a landscape dominated by feature-rich but often resource-intensive IDEs, this
 
 **Vision**
 
-The core vision of this project is to deliver a highly modular IDE. Each component is purpose-built to focus on a single task and work together in harmony. The IDE aims to provide an intuitive and rapid coding experience by separating the logic for the user interface, the text editor, and supporting functionalities like Git and the terminal into distinct, manageable modules. With this approach, we aim to prove that high performance and modern features can coexist within the terminal environment.
+The core vision of this project is to deliver a highly modular IDE. Each component is purpose-built to focus on a single task and work together in harmony. The IDE aims to provide an intuitive and rapid coding experience by separating the logic for the user interface, the text editor, and supporting functionalities like Git, manageable modules. With this approach, we aim to prove that high performance and modern features can coexist within the terminal environment.
 
 **Technology Stack**
 
@@ -54,24 +54,26 @@ This project is the result of a unique collaboration between a visionary develop
         * Cursor navigation and scrolling.
         * `Undo/Redo` functionality.
         * Git `diff` visualization on a per-line basis.
-* **Bottom Panel**: Interactive Terminal (`Textual` Terminal Widget)
-    * **Purpose**: Runs a real shell terminal inside the IDE.
+* **Bottom Panel**: Interactive Command/Search Panel
+    * **Purpose**: A constantly visible, multi-functional panel that serves as an area for quick searches, command execution, and status display.
     * **Features**:
-        * Supports multiple terminal tabs.
-        * A navigator to switch between terminals.
-        * Supports standard terminal output and input.
+        * **Prompt Input**: A dynamic input field. When no command is active, it can display a placeholder text like "Type to search..." or "Press Ctrl-P for commands...".
+        * **Dynamic Content**: The main area of this panel changes its content depending on the active mode.
+        * **Result List**: When search mode is active, this area displays a list of matching files in real-time. Each item in the list shows the relative **file path** and its **Git status**.
+        * **Status Bar**: When no command or search is active, this panel can display important status information, such as the current **Git branch** or brief messages.
 
 ---
 
 **3. Smart Features & Integrations**
 
-* **Quick File Search (`Ctrl+P`)**
-    * **Concept**: Uses a `modal dialog` from **`Textual`**.
+* **Quick File Search**
+    * **Concept**: Utilizing the always-present bottom panel as the primary interface for file search.
     * **Process**:
-        1.  The user presses `Ctrl+P`.
-        2.  Textual displays a **pop-up window**.
-        3.  The user types a filename.
-        4.  Search logic (which only searches the `Directory Tree` in memory) displays matching results in real-time.
+        1.  The user presses a **shortcut** (`Ctrl-P`) to activate the search mode.
+        2.  The input field in the bottom panel changes, perhaps showing an icon or label indicating that search mode is active.
+        3.  As the user types, the **Result List** immediately appears below the input field, showing real-time fuzzy search results.
+        4.  The user can navigate the results with the `up`/`down` arrow keys.
+        5.  When the user presses `Enter`, the selected file is opened in the editor and the bottom panel returns to its default mode (e.g., displaying the status bar or an empty prompt).
 * **Git Integration**
     * **Library**: **`GitPython`**
     * **Workflow**:
